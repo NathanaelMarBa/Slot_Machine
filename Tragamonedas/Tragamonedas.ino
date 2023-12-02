@@ -3,22 +3,22 @@ const int OutPin1 = 13;
 int cont1 = 0;
 int band1 = 0;
 //---------------------------
-const int analogInPin2 = A3;
+const int analogInPin2 = A2;
 const int OutPin2 = 13;
 int cont2 = 0;
 int band2 = 0;
 //---------------------------
-const int analogInPin5 = A4;
+const int analogInPin5 = A3;
 const int OutPin5 = 13;
 int cont5 = 0;
 int band5 = 0;
 //---------------------------
-const int analogInPin10 = A5;
+const int analogInPin10 = A4;
 const int OutPin10 = 13;
 int cont10 = 0;
 int band10 = 0;
 //---------------------------
-const int analogInPin20 = A6;
+const int analogInPin20 = A5;
 const int OutPin20 = 13;
 int cont20 = 0;
 int band20 = 0;
@@ -52,7 +52,8 @@ void loop() {
   delay(500);
   Moneda2();
   delay(500);
-  Serial.println("Total juntado: $" + total);
+  String Texto = "Total juntado: $" + total;
+  Serial.println(Texto);
   delay(500);
 }
 
@@ -78,7 +79,8 @@ int Moneda1 (){
       cont1 = cont1 + 1;
       total = total + 1;
       band1 == 0;
-      Serial.println("Monedas de $1 hasta el momento: " + cont1);
+      String Mensaje = "Monedas de $1 hasta el momento: " + cont1;
+      Serial.println(Mensaje);
     }
 
     Serial.println(sensorValue = "Hola");
@@ -111,7 +113,8 @@ int Moneda2 (){
       cont2++;
       total = total + 2;
       band2 == 0;
-      Serial.println("Monedas de $2 hasta el momento: " + cont2);
+      String Mensaje = "Monedas de $2 hasta el momento: " + cont2;
+      Serial.println(Mensaje);
     }
 
     Serial.println(sensorValue);
@@ -143,8 +146,8 @@ int Moneda5 (){
     if (band5 == 2){
       cont5++;
       total = total + 5;
-      band5 == 0;
-      Serial.println("Monedas de $5 hasta el momento: " + cont5);
+      String Mensaje = "Monedas de $5 hasta el momento: " + cont5;
+      Serial.println(Mensaje);
     }
 
     Serial.println(sensorValue5);
@@ -177,7 +180,8 @@ int Moneda10 (){
       cont10++;
       total = total + 10;
       band10 == 0;
-      Serial.println("Monedas de $10 hasta el momento: " + cont10);
+      String Mensaje = "Monedas de $10 hasta el momento: " + cont10;
+      Serial.println(Mensaje);
     }
 
     Serial.println(sensorValue);
@@ -210,7 +214,8 @@ int Moneda20 (){
       cont20++;
       total = total + 20;
       band20 == 0;
-      Serial.println("Monedas de $20 hasta el momento: " + cont20);
+      String Mensaje = "Monedas de $20 hasta el momento: " + cont20;
+      Serial.println(Mensaje);
     }
 
     Serial.println(sensorValue);
