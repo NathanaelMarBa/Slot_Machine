@@ -30,6 +30,18 @@ void setup() {
   Serial.begin(9600);
   pinMode(OutPin1, OUTPUT);
   pinMode(analogInPin1, INPUT);
+
+  pinMode(OutPin2, OUTPUT);
+  pinMode(analogInPin2, INPUT);
+
+  pinMode(OutPin5, OUTPUT);
+  pinMode(analogInPin5, INPUT);
+
+  pinMode(OutPin10, OUTPUT);
+  pinMode(analogInPin10, INPUT);
+
+  pinMode(OutPin20, OUTPUT);
+  pinMode(analogInPin20, INPUT);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -37,12 +49,11 @@ void setup() {
 void loop() {
 
   Moneda1();
+  delay(500);
   Moneda2();
-  Moneda5();
-  Moneda10();
-  Moneda20();
+  delay(500);
   Serial.println("Total juntado: $" + total);
-
+  delay(500);
 }
 
 //--------------------------------------------------------------------------------------------------------------------------------------------------
@@ -64,13 +75,13 @@ int Moneda1 (){
     }
 
     if (band1 == 2){
-      cont1++;
+      cont1 = cont1 + 1;
       total = total + 1;
       band1 == 0;
       Serial.println("Monedas de $1 hasta el momento: " + cont1);
     }
 
-    Serial.println(sensorValue);
+    Serial.println(sensorValue = "Hola");
     delay(100);
 
   } while (sensorValue <= 500);
@@ -115,10 +126,10 @@ int Moneda2 (){
 
 int Moneda5 (){
 
-  int sensorValue = analogRead(analogInPin5);
+  int sensorValue5 = analogRead(analogInPin5);
 
   do{
-    if(sensorValue > 900){
+    if(sensorValue5 > 900){
       digitalWrite(OutPin5, HIGH);
       band5 = 1;
     }else {
@@ -136,10 +147,10 @@ int Moneda5 (){
       Serial.println("Monedas de $5 hasta el momento: " + cont5);
     }
 
-    Serial.println(sensorValue);
+    Serial.println(sensorValue5);
     delay(100);
 
-  } while (sensorValue <= 500);
+  } while (sensorValue5 <= 500);
 
   return cont5;
 }
